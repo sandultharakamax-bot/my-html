@@ -110,67 +110,15 @@ input:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(255,126,182,.1
 </div>
 
 <script>
-/* ============================================================
-   ❤️❤️❤️ PERSONALIZATION PANEL — EDIT THIS AREA ONLY ❤️❤️❤️
-
-   QUICK MAP — WHAT TO CHANGE
-   ─────────────────────────────────────────────────────────────
-   👤 NAMES / NICKNAME       → general
-   📅 RELATIONSHIP DATES     → relationship
-   🌑 FIRST SCREEN           → opening
-   🕵️ MYSTERY TEXT           → mystery
-   🧩 FIRST CHALLENGE        → challenge
-   🎵 MAIN SONG              → music.source + music.volume
-   🔊 SOUND EFFECTS          → sounds
-   ⏱️ RELATIONSHIP COUNTER   → counter
-   🎬 SCENES                 → scenes[] (enabled:true/false)
-   ✨ MEMORIES / STARS       → memories[]
-   📸 PHOTOS                 → photos[]
-   💗 REASONS                → reasons[]
-   ❓ QUIZ                   → quiz[]
-   🌅 FUTURE DREAMS          → future.cards[]
-   💌 OPEN-WHEN LETTERS      → letters[]
-   ✉️ MAIN LOVE LETTER       → letter
-   🔐 SECRET INITIALS        → secret
-   ❤️ FINAL REVEAL           → finalReveal
-   🥚 EASTER EGGS            → easterEggs[]
-   🎨 COLORS                 → theme
-   ✍️ FONTS                  → typography
-   🎞️ ANIMATION PRESETS      → animations
-   🌌 SPACE / PARTICLES      → effects
-   ♿ ACCESSIBILITY          → accessibility
-   ⚡ PERFORMANCE            → performance
-   💾 REMEMBER PROGRESS      → progress
-   🎭 MYSTERY MODE           → surpriseMode
-
-   ASSET PATH EXAMPLES
-   ─────────────────────────────────────────────────────────────
-   Photo: assets/images/photo1.jpg
-   Song:  assets/music/our-song.mp3
-   Video: assets/videos/memory.mp4
-   Sound: assets/sounds/success.mp3
-
-   IMPORTANT:
-   • Put your files inside the assets folders shown above.
-   • You normally only need to edit CONFIG.
-   • Do NOT use a Windows path such as C:\\Users\\...
-   • Music volume is 0.0–1.0 (example: .5 = 50%).
-   • Arrays such as photos[], memories[] and quiz[] can contain ANY
-     number of items. Add/remove items without changing the engine.
-   • To hide a scene, change enabled:true to enabled:false.
-   ============================================================ */
 const CONFIG = {
-  // 👤 PERSONAL DETAILS — change names/title here
   general:{
     creatorName:"DUL❤️", partnerName:"IM❤️", nickname:"SUDU❤️",
     language:"en", experienceTitle:"A Private Universe", theme:"COSMIC"
   },
-  // 📅 IMPORTANT DATES — YYYY-MM-DD
   relationship:{
     startDate:"2024-08-29", startTime:"00:00",
     anniversaryDate:"2026-08-29", anniversaryNumber:""
   },
-  // 🌑 MYSTERY OPENING — first screen text
   opening:{
     enabled:true, eyebrow:"A small anomaly",
     title:"Before you continue…",
@@ -178,14 +126,12 @@ const CONFIG = {
     description:"Solve one small thing. Then the story can begin.",
     buttonText:"Begin the search", backgroundMode:"cosmic", revealDelay:0
   },
-  // 🕵️ MYSTERY / CLUES — text revealed before romance is obvious
   mystery:{
     enabled:true, title:"Every universe has a beginning.",
     messages:["Some stories are written down.","Some are remembered.","And some quietly become a universe of their own."],
     clues:["Look closely.","The important things are rarely the loudest.","Keep going."],
     hints:[]
   },
-  // 🧩 FIRST CHALLENGE — change type/question/answer here
   challenge:{
     enabled:false, type:"integration",
     question:"Evaluate: ∫₀² (3x² + 4x + 201) dx",
@@ -194,23 +140,19 @@ const CONFIG = {
     failureMessage:"Not quite. The universe is giving you another chance.",
     attemptsAllowed:0
   },
-  // 🎵 MAIN BACKGROUND SONG — use assets/music/filename.mp3
   music:{
     enabled:true, source:"assets/music/my-song.mp3", volume:.6,
     autoplayAfterInteraction:true, loop:true, fadeIn:1200, fadeOut:800
   },
-  // 🔊 OPTIONAL SOUND EFFECTS
   sounds:{
     enabled:true, click:"assets/sounds/click.mp3",
     success:"assets/sounds/success.mp3", memory:"assets/sounds/memory.mp3",
     reveal:"assets/sounds/reveal.mp3"
   },
-  // ⏱️ RELATIONSHIP COUNTER
   counter:{
     enabled:true, units:["years","months","days","hours","minutes","seconds"],
     showTotalDays:true
   },
-  // 🎬 SCENE ORDER + VISIBILITY — reorder or disable scenes here
   scenes:[
     {id:"mystery",enabled:true,title:"The First Clue",subtitle:"Not everything needs an explanation.",description:"",background:{type:"cosmic"},transitionIn:"fade",transitionOut:"blur"},
     {id:"universe",enabled:true,title:"A Universe of Two",subtitle:"Some stars are worth following.",description:"",background:{type:"cosmic"}},
@@ -225,34 +167,29 @@ const CONFIG = {
     {id:"reveal",enabled:true,title:"And after everything…",subtitle:"There is still one thing.",background:{type:"cosmic"}},
     {id:"final",enabled:true,title:"",subtitle:"",background:{type:"cosmic"}}
   ],
-  // ✨ MEMORY STARS — add as many memories as you want
   memories:[
     {title:"The Beginning",date:"",location:"",text:"The moment that made everything after it possible.",image:"assets/images/photo1.jpeg",video:"",song:"",quote:"",coordinates:{x:22,y:28}},
     {title:"That Day",date:"",location:"",text:"A memory that still feels warmer than it should.",image:"assets/images/photo2.jpeg",video:"",song:"",quote:"",coordinates:{x:52,y:20}},
     {title:"Somewhere Along The Way",date:"",location:"",text:"Somewhere between then and now, this became us.",image:"assets/images/photo3.jpeg",video:"",song:"",quote:"",coordinates:{x:76,y:45}},
     {title:"Today",date:"",location:"",text:"Still here. Still choosing this.",image:"assets/images/photo4.jpeg",video:"",song:"",quote:"",coordinates:{x:48,y:70}}
   ],
-  // 📸 PHOTO GALLERY — add/remove unlimited photos
   photos:[
     {src:"assets/images/photo1.jpeg",title:"That Moment",date:"",location:"",caption:"One frame. A thousand feelings."},
     {src:"assets/images/photo2.jpeg",title:"Another Day",date:"",location:"",caption:"Still one of my favorites."},
     {src:"assets/images/photo3.jpeg",title:"Us",date:"",location:"",caption:"Somewhere between ordinary and unforgettable."},
     {src:"assets/images/photo4.jpeg",title:"Today",date:"",location:"",caption:"The story is still going."}
   ],
-  // 💗 REASONS — add unlimited reasons
   reasons:[
     {title:"Your Smile",text:"Because somehow it can change the entire atmosphere of a day.",image:""},
     {title:"Your Heart",text:"Because kindness looks different when it is yours.",image:""},
     {title:"The Little Things",text:"The details you probably don't realize I notice.",image:""},
     {title:"Being You",text:"The simplest reason is still the strongest one.",image:""}
   ],
-  // ❓ QUIZ — add unlimited questions
   quiz:[
-    {question:"What matters most in a story?",options:["The ending","The beginning","The moments between","The plot twist"],answer:[1,3]},
-    {question:"What makes an ordinary day unforgettable?",options:["A perfect plan","The right person","A camera","Luck"],answer:[1,3]},
-    {question:"If you had to choose one word for us?",options:["Chance","Home","Adventure","Forever"],answer:[1,3]}
+    {question:"Who fell in love first🫣?",options:["You did","I did","We both did at the same time","It was instant"],answer:[0,1,2,3]},
+    {question:"What is my favorite thing about you?",options:["Your smile","Your kind heart","Your sense of humor","Just everything about you"],answer:[0,1,2,3]},
+    {question:"If you had to choose one word for us?",options:["Chance","Home","wali withrai😁","Forever"],answer:[0,1,2,3]}
   ],
-  // 🌅 FUTURE DREAMS
   future:{
     title:"The pages ahead",
     cards:[
@@ -262,46 +199,37 @@ const CONFIG = {
       {title:"Still Us",description:"Whatever the next chapter looks like, I hope we are in it together.",image:"",icon:"∞"}
     ]
   },
-  // 💌 OPEN-WHEN LETTERS — add unlimited letters
   letters:[
     {title:"Open when you miss me",text:"If you are reading this, I hope you know that distance never gets to decide how close someone can feel."},
     {title:"Open when you need a smile",text:"Here is your reminder: somewhere, someone is very grateful that you exist."},
     {title:"Open when you doubt us",text:"Look at everything we have already made it through. Then look at everything we still haven't written."}
   ],
-  // ✉️ MAIN LOVE LETTER
   letter:{
     title:"For you.",
-    text:"I could try to fit everything I feel into a perfect paragraph, but I don't think feelings work that way.\n\nSo I'll keep it simple.\n\nThank you for the ordinary moments that became extraordinary because you were there. Thank you for every laugh, every conversation, every memory, and every little thing that only makes sense to us.\n\nIf I could go back to the beginning, I would still walk toward you.\n\nAnd if I could see the future, I hope I would find us there too.",
+    text:"I love you so much suduu😘❤️.... \n\n kochchr randu krl trh wela hitiyth oya nathi aduwa mta hodtm danenw saththaii..\n\ngalpen nathi thanuth galapagen kohom hri issrht yamu sudu..\n\nmn oyat gdk adareiii...💕\n\n\n(kalin tibuna AI wikara tika wens krgnn welaw tibune na eei,leda unane😒)",
     signature:"— Yours"
   },
-  // 🔐 SECRET INITIALS
   secret:{firstInitial:"",secondInitial:""},
-  // ❤️ FINAL REVEAL — strongest emotional moment
   finalReveal:{
     title:"And after everything…",
     subtitle:"There is still one thing I want you to know.",
     nameReveal:"",line1:"I would choose you.",line2:"Again.",message:"And again. And again.",signature:"",closingText:"Thank you for being part of my universe.",
     heartSymbol:"❤️",showReplayButton:true,replayText:"Experience it again",
-    // 🌌 SPACE / PARTICLES / PARALLAX
-  effects:{particles:true,fireworks:false,hearts:true,stars:true}
+    effects:{particles:true,fireworks:false,hearts:true,stars:true}
   },
-  // 🥚 EASTER EGGS
   easterEggs:[
     {type:"doubleclick",target:"moon",message:"You found something that wasn't supposed to be obvious."},
     {type:"clickInitials",target:"",message:"Some things are hidden in plain sight."}
   ],
-  // 🎨 COLORS / VISUAL THEME
   theme:{
     background:"#03030a",primary:"#ff7eb6",secondary:"#9d7bff",accent:"#ffd6ea",text:"#ffffff",mutedText:"#aaa8ba",
     glowStrength:1
   },
-  // ✍️ FONTS — change these three font families
   typography:{
     heading:"Georgia, Times New Roman, serif",
     body:"system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
     handwritten:"cursive",mono:"ui-monospace, SFMono-Regular, Menlo, monospace"
   },
-  // 🎞️ ANIMATION PRESETS
   animations:{
     pageTransition:"cinematic",textReveal:"fadeUp",photoReveal:"zoom",cardReveal:"glass",
     heartAnimation:"pulse",starAnimation:"twinkle"
@@ -310,13 +238,9 @@ const CONFIG = {
     stars:true,starCount:700,shootingStars:true,nebula:true,parallax:true,customCursor:true,
     constellation:true,mouseParallax:.012
   },
-  // ♿ ACCESSIBILITY
   accessibility:{reducedMotionRespect:true,keyboardNavigation:true},
-  // ⚡ PERFORMANCE / MOBILE QUALITY
   performance:{autoQuality:true,particleDensity:"high",mobileParticleDensity:"low"},
-  // 💾 OPTIONAL PROGRESS MEMORY
   progress:{enabled:true,rememberLastScene:false},
-  // 🎭 true = hide obvious romantic clues initially
   surpriseMode:true
 };
 
@@ -335,7 +259,6 @@ function setTheme(){
   document.documentElement.style.setProperty("--primary",t.primary);document.documentElement.style.setProperty("--secondary",t.secondary);
   document.documentElement.style.setProperty("--accent",t.accent);document.documentElement.style.setProperty("--text",t.text);
   document.documentElement.style.setProperty("--muted",t.mutedText);
-  // ✍️ Apply the configurable fonts from CONFIG.typography
   document.documentElement.style.setProperty("--heading-font",CONFIG.typography.heading);
   document.documentElement.style.setProperty("--body-font",CONFIG.typography.body);
   document.documentElement.style.setProperty("--handwritten-font",CONFIG.typography.handwritten);
@@ -344,17 +267,48 @@ function setTheme(){
 }
 setTheme();
 
-/* -------------------- MUSIC -------------------- */
-let audio=null;
-function initMusic(){
-  if(!CONFIG.music.enabled||!CONFIG.music.source)return;
-  audio=new Audio(CONFIG.music.source);audio.loop=CONFIG.music.loop;audio.volume=0;
-  audio.addEventListener("error",()=>toast("Music asset unavailable — the experience continues quietly."));
+/* -------------------- MUSIC (AUTO-PLAY + UNLOCK FALLBACK) -------------------- */
+let audio = null;
+
+function initMusic() {
+  if (!CONFIG.music.enabled || !CONFIG.music.source) return;
+  audio = new Audio(CONFIG.music.source);
+  audio.loop = CONFIG.music.loop;
+  audio.volume = 0;
+  
+  audio.addEventListener("error", () => toast("Music asset unavailable — the experience continues quietly."));
+
+  // Attempt automatic background playback right away
+  attemptAutoplay();
+
+  // Fallback: If autoplay policy blocks it, start on first tap/click anywhere
+  const unlockAudio = () => {
+    startMusic();
+    document.removeEventListener("click", unlockAudio);
+    document.removeEventListener("touchstart", unlockAudio);
+  };
+  document.addEventListener("click", unlockAudio);
+  document.addEventListener("touchstart", unlockAudio);
 }
-function startMusic(){
-  if(!audio||!CONFIG.music.autoplayAfterInteraction)return;
-  audio.play().then(()=>fadeVolume(CONFIG.music.volume,CONFIG.music.fadeIn)).catch(()=>{});
+
+function attemptAutoplay() {
+  if (!audio) return;
+  audio.play()
+    .then(() => fadeVolume(CONFIG.music.volume, CONFIG.music.fadeIn))
+    .catch(() => {
+      // Browser blocked autoplay; waiting for first interaction fallback
+    });
 }
+
+function startMusic() {
+  if (!audio) return;
+  if (audio.paused) {
+    audio.play()
+      .then(() => fadeVolume(CONFIG.music.volume, CONFIG.music.fadeIn))
+      .catch(() => {});
+  }
+}
+
 function fadeVolume(to,ms){
   if(!audio)return;const from=audio.volume,start=performance.now();
   const tick=now=>{const p=clamp((now-start)/ms,0,1);audio.volume=from+(to-from)*p;if(p<1)requestAnimationFrame(tick)};requestAnimationFrame(tick)
@@ -475,12 +429,27 @@ function renderGallery(){
   $("#nextPhoto").onclick=()=>{galleryIndex=(galleryIndex+1)%CONFIG.photos.length;renderGallery()};
 }
 
-/* -------------------- QUIZ -------------------- */
+/* -------------------- QUIZ (EVERY OPTION CORRECT) -------------------- */
 function renderQuiz(){
   const box=$("#quizBox");if(!box)return;
   if(state.quizIndex>=CONFIG.quiz.length){box.innerHTML=`<div class="result">${esc(`You scored ${state.quizScore}/${CONFIG.quiz.length}.`)}</div><p class="lead">But there is one question you can never get wrong.</p><h3>Would I choose you again?</h3><p class="result">Every single time.</p><button class="cta" id="quizContinue">Continue</button>`;$("#quizContinue").onclick=goNext;return}
-  const q=CONFIG.quiz[state.quizIndex];box.innerHTML=`<div class="meta">Question ${state.quizIndex+1} / ${CONFIG.quiz.length}</div><h3>${esc(q.question)}</h3><div class="quiz-options">${q.options.map((o,i)=>`<button class="choice" data-q="${i}">${esc(o)}</button>`).join("")}</div><div id="quizStatus" class="status"></div>`;
-  box.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{const good=+b.dataset.q===q.answer;if(good){state.quizScore++;$("#quizStatus").className="status success";$("#quizStatus").textContent="You remembered.";sound(CONFIG.sounds.success)}else{$("#quizStatus").className="status error";$("#quizStatus").textContent="Close… but not quite."}setTimeout(()=>{state.quizIndex++;renderQuiz()},650)})
+  const q=CONFIG.quiz[state.quizIndex];
+  box.innerHTML=`<div class="meta">Question ${state.quizIndex+1} / ${CONFIG.quiz.length}</div><h3>${esc(q.question)}</h3><div class="quiz-options">${q.options.map((o,i)=>`<button class="choice" data-q="${i}">${esc(o)}</button>`).join("")}</div><div id="quizStatus" class="status"></div>`;
+  box.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{
+    const selectedIdx = +b.dataset.q;
+    const isGood = Array.isArray(q.answer) ? q.answer.includes(selectedIdx) : selectedIdx === q.answer;
+    
+    if(isGood){
+      state.quizScore++;
+      $("#quizStatus").className="status success";
+      $("#quizStatus").textContent="You remembered.";
+      sound(CONFIG.sounds.success);
+    } else {
+      $("#quizStatus").className="status error";
+      $("#quizStatus").textContent="Close… but not quite.";
+    }
+    setTimeout(()=>{state.quizIndex++;renderQuiz()},650);
+  });
 }
 
 /* -------------------- COUNTER -------------------- */
