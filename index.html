@@ -81,7 +81,11 @@ input:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(255,126,182,.1
 .quiz-card{padding:35px;border-radius:26px;width:min(100%,750px);margin:auto}.quiz-options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:25px 0}.result{font-family:Georgia,serif;font-size:clamp(1.5rem,3vw,2.5rem)}
 .final-heart{position:absolute;z-index:1;left:50%;top:50%;font-size:clamp(9rem,30vw,22rem);line-height:.7;filter:drop-shadow(0 0 40px rgba(255,126,182,.7));animation:heart 1.5s ease-in-out infinite;opacity:0;transform:translate(-50%,-50%) scale(.3);transition:1.4s var(--ease);pointer-events:none}
 .scene.active .final-heart{opacity:1;transform:translate(-50%,-50%) scale(1)}
-@keyframes heart{50%{transform:scale(1.055)}}
+@keyframes heart{
+  50%{
+    transform:translate(-50%,-50%) scale(1.055);
+  }
+}
 .final-name{position:relative;z-index:10;color:var(--accent);text-shadow:0 0 35px rgba(255,126,182,.4)}
 .scene[data-id="final"] .content{position:relative;isolation:isolate}
 .scene[data-id="final"] .content > :not(.final-heart){position:relative;z-index:10}
