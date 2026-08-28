@@ -192,7 +192,7 @@ const CONFIG = {
   },
   // 🎵 MAIN BACKGROUND SONG — use assets/music/filename.mp3
   music:{
-    enabled:true, source:"assets/music/my-song.mp3", volume:.5,
+    enabled:true, source:"assets/music/my-song.mp3", volume:.6,
     autoplayAfterInteraction:true, loop:true, fadeIn:1200, fadeOut:800
   },
   // 🔊 OPTIONAL SOUND EFFECTS
@@ -223,17 +223,17 @@ const CONFIG = {
   ],
   // ✨ MEMORY STARS — add as many memories as you want
   memories:[
-    {title:"The Beginning",date:"",location:"",text:"The moment that made everything after it possible.",image:"assets/images/photo1.jpg",video:"",song:"",quote:"",coordinates:{x:22,y:28}},
-    {title:"That Day",date:"",location:"",text:"A memory that still feels warmer than it should.",image:"assets/images/photo2.jpg",video:"",song:"",quote:"",coordinates:{x:52,y:20}},
-    {title:"Somewhere Along The Way",date:"",location:"",text:"Somewhere between then and now, this became us.",image:"assets/images/photo3.jpg",video:"",song:"",quote:"",coordinates:{x:76,y:45}},
-    {title:"Today",date:"",location:"",text:"Still here. Still choosing this.",image:"assets/images/photo4.jpg",video:"",song:"",quote:"",coordinates:{x:48,y:70}}
+    {title:"The Beginning",date:"",location:"",text:"The moment that made everything after it possible.",image:"assets/images/photo1.jpeg",video:"",song:"",quote:"",coordinates:{x:22,y:28}},
+    {title:"That Day",date:"",location:"",text:"A memory that still feels warmer than it should.",image:"assets/images/photo2.jpeg",video:"",song:"",quote:"",coordinates:{x:52,y:20}},
+    {title:"Somewhere Along The Way",date:"",location:"",text:"Somewhere between then and now, this became us.",image:"assets/images/photo3.jpeg",video:"",song:"",quote:"",coordinates:{x:76,y:45}},
+    {title:"Today",date:"",location:"",text:"Still here. Still choosing this.",image:"assets/images/photo4.jpeg",video:"",song:"",quote:"",coordinates:{x:48,y:70}}
   ],
   // 📸 PHOTO GALLERY — add/remove unlimited photos
   photos:[
-    {src:"assets/images/photo1.jpg",title:"That Moment",date:"",location:"",caption:"One frame. A thousand feelings."},
-    {src:"assets/images/photo2.jpg",title:"Another Day",date:"",location:"",caption:"Still one of my favorites."},
-    {src:"assets/images/photo3.jpg",title:"Us",date:"",location:"",caption:"Somewhere between ordinary and unforgettable."},
-    {src:"assets/images/photo4.jpg",title:"Today",date:"",location:"",caption:"The story is still going."}
+    {src:"assets/images/photo1.jpeg",title:"That Moment",date:"",location:"",caption:"One frame. A thousand feelings."},
+    {src:"assets/images/photo2.jpeg",title:"Another Day",date:"",location:"",caption:"Still one of my favorites."},
+    {src:"assets/images/photo3.jpeg",title:"Us",date:"",location:"",caption:"Somewhere between ordinary and unforgettable."},
+    {src:"assets/images/photo4.jpeg",title:"Today",date:"",location:"",caption:"The story is still going."}
   ],
   // 💗 REASONS — add unlimited reasons
   reasons:[
@@ -244,9 +244,9 @@ const CONFIG = {
   ],
   // ❓ QUIZ — add unlimited questions
   quiz:[
-    {question:"What matters most in a story?",options:["The ending","The beginning","The moments between","The plot twist"],answer:2},
-    {question:"What makes an ordinary day unforgettable?",options:["A perfect plan","The right person","A camera","Luck"],answer:1},
-    {question:"If you had to choose one word for us?",options:["Chance","Home","Adventure","Forever"],answer:1}
+    {question:"What matters most in a story?",options:["The ending","The beginning","The moments between","The plot twist"],answer:[1,3]},
+    {question:"What makes an ordinary day unforgettable?",options:["A perfect plan","The right person","A camera","Luck"],answer:[1,3]},
+    {question:"If you had to choose one word for us?",options:["Chance","Home","Adventure","Forever"],answer:[1,3]}
   ],
   // 🌅 FUTURE DREAMS
   future:{
